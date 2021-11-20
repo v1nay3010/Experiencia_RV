@@ -9,6 +9,7 @@ public class GyroControl : MonoBehaviour
 
     private GameObject cameraContainer;
     private Quaternion rot;
+    private GameObject nave;
 
 
     // Start is called before the first frame update
@@ -18,6 +19,9 @@ public class GyroControl : MonoBehaviour
         cameraContainer.transform.position = transform.position;
         transform.SetParent(cameraContainer.transform);
         gyroEnabled = EnableGyro();
+        nave = GameObject.FindWithTag("Player");
+        cameraContainer.transform.SetParent(nave.transform);
+
     }
 
     private bool EnableGyro()
